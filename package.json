@@ -8,7 +8,7 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sri Charan Vemuri, Shri Datta Madhira",
+  "author": "Adrian Theodor, Sri Charan Vemuri, Shri Datta Madhira",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

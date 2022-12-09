@@ -42,4 +42,5 @@ FavoritesController(app)
 SessionController(app)
 FollowsController(app)
 RatingsController(app)
-app.listen(4000)
+const port = process.env.port || 3000;
+app.listen(port)
