@@ -31,7 +31,7 @@ const port = process.env.PORT || 4000
 app.use(cors(
     {
         credentials: true,
-        origin: 'https://stalwart-piroshki-6198ac.netlify.app',
+        origin: 'herokucdn.com',
         methods: ['GET', 'PUT', 'DELETE', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization'],
         maxAge: 600,
