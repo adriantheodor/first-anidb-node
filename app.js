@@ -21,6 +21,9 @@ const options = {
 mongoose.connect('mongodb://localhost:27017/anidb', options);
 
 const app = express();
+
+const port = process.env.PORT || 4000
+
 app.use(cors(
     {
         credentials: true,
@@ -42,4 +45,6 @@ FavoritesController(app)
 SessionController(app)
 FollowsController(app)
 RatingsController(app)
-app.listen(process.env.PORT || 4000)
+app.listen(port, () => {
+    console.log(`Started on port ${port}`)
+})
