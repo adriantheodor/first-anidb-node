@@ -28,7 +28,7 @@ const app = express();
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin",
-        "https://63967bdc7696c87e086647aa--stalwart-piroshki-6198ac.netlify.app");
+        "*");
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods",
