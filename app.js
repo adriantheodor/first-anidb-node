@@ -22,36 +22,14 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://0.0.0.0
 //console.log(CONNECTION_STRING)
 mongoose.connect(CONNECTION_STRING, options);
 
-
-
 const app = express();
 
-const port = process.env.PORT || 4000
 
 
-
-app.use(cors(
-    {
-        credentials: true,
-        origin: 'https://stalwart-piroshki-6198ac.netlify.app',
-        methods: ['GET', 'PUT', 'DELETE', 'PUT'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
-        maxAge: 600,
-
-    }
-))
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin",
-        "https://stalwart-piroshki-6198ac.netlify.app");
-    res.header("Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods",
-        "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Credentials", "true");
-    next();
-});
-
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+}))
 
 app.use(session({
                     secret: 'could be anything',
@@ -67,6 +45,9 @@ FavoritesController(app)
 SessionController(app)
 FollowsController(app)
 RatingsController(app)
+
+const port = process.env.PORT || 4000
+
 app.listen(port, () => {
     console.log(`Started on port ${port}`)
 })
