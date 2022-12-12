@@ -28,16 +28,27 @@ const app = express();
 
 const port = process.env.PORT || 4000
 
+
+
 app.use(cors(
     {
         credentials: true,
-        origin: 'herokucdn.com',
+        origin: 'https://stalwart-piroshki-6198ac.netlify.app',
         methods: ['GET', 'PUT', 'DELETE', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization'],
         maxAge: 600,
 
     }
 ))
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://stalwart-piroshki-6198ac.netlify.app");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
 
 app.use(session({
                     secret: 'could be anything',
