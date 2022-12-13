@@ -19,7 +19,7 @@ const options = {
     family: 4 // Use IPv4, skip trying IPv6
 }
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb+srv://adrian:RcJ8nOXvz7Qd8BZQ@cluster0.q3n6zem.mongodb.net/?retryWrites=true&w=majority"
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb+srv://adrian:RcJ8nOXvz7Qd8BZQ@cluster0.q3n6zem.mongodb.net/?retryWrites=true&w=majority'
 //console.log(CONNECTION_STRING)
 
 mongoose.connect(CONNECTION_STRING, options);
