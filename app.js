@@ -22,20 +22,17 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://0.0.0.0
 //console.log(CONNECTION_STRING)
 mongoose.connect(CONNECTION_STRING, options);
 
+const port = process.env.PORT || 4000
+
 const app = express();
 
+app.use(cors(
+    {
+        credentials: true,
+        origin: 'http://localhost:3000'
+    }
+))
 
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin",
-        "*");
-    res.header("Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods",
-        "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Credentials", "true");
-    next();
-});
 
 
 app.use(session({
@@ -53,7 +50,7 @@ SessionController(app)
 FollowsController(app)
 RatingsController(app)
 
-const port = process.env.PORT || 4000
+
 
 app.listen(port, () => {
     console.log(`Started on port ${port}`)
